@@ -1,0 +1,128 @@
+<!-- 
+ Source:
+https://www.iconfinder.com/icons/4102320/cloud_heavy_rain_rain_weather_icon
+
+https://wallpapersok.com/wallpapers/aesthetic-night-sky-for-iphone-veyzqbtxyx577djv.html
+
+https://www.iconpacks.net/free-icon/location-2955.html
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="weather-app">
+    <div class="location">
+      <span><img src="/location-2955.png" alt="Location Icon"></span>
+      <span>Philadelphia</span>
+      <button id="toggle-temp-btn">Switch to °C</button>
+    </div>
+
+    <div class="icon">
+      <img src="/4102320_cloud_heavy rain_rain_weather_icon.png" alt="Rain Icon">
+    </div>
+
+    <div class="temp" id="current-temp" data-f="30" data-c="-1.1">
+      30&deg;
+    </div>
+
+    <div class="details">
+      <span>
+        Feels Like: 
+        <span id="feels-like" data-f="27" data-c="-2.8">27&deg;</span>
+      </span>
+      <span>Humidity: 55%</span>
+    </div>
+
+    <div class="details">
+      <span>Wind Speed: 25 mph</span>
+      <span>AQI: 70</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="hourly">
+      <div>
+        <div id="hour-now" data-f="30" data-c="-1.1">30&deg;</div>
+        <div>Now</div>
+      </div>
+      <div>
+        <div id="hour-7pm" data-f="28" data-c="-2.2">28&deg;</div>
+        <div>7PM</div>
+      </div>
+      <div>
+        <div id="hour-8pm" data-f="27" data-c="-2.8">27&deg;</div>
+        <div>8PM</div>
+      </div>
+    </div>
+
+    <div class="forecast">
+      <div>
+        <div>Today</div>
+        <div id="forecast-today" data-f="42/27" data-c="5.6/-2.8">42°/27°</div>
+        <div style="margin-top: 10px;">🌧️</div>
+      </div>
+      <div>
+        <div>Monday</div>
+        <div id="forecast-monday" data-f="42/27" data-c="5.6/-2.8">42°/27°</div>
+        <div style="margin-top: 10px;">☀️</div>
+      </div>
+    </div>
+
+    <div class="recommendation">
+      Cloth Recommendation: <br>Layers, warm jacket, hat, boots
+    </div>
+  </div>
+
+  <script>
+    const toggleBtn = document.getElementById('toggle-temp-btn');
+
+    const tempElements = [
+      document.getElementById('current-temp'),
+      document.getElementById('feels-like'),
+      document.getElementById('hour-now'),
+      document.getElementById('hour-7pm'),
+      document.getElementById('hour-8pm')
+    ];
+
+    const forecastToday = document.getElementById('forecast-today');
+    const forecastMonday = document.getElementById('forecast-monday');
+
+    let isFahrenheit = true;
+
+    function updateSingleTemp(elem) {
+      const fVal = parseFloat(elem.dataset.f);
+      const cVal = parseFloat(elem.dataset.c);
+
+      if (isFahrenheit) {
+        elem.textContent = fVal + '°';
+      } else {
+        elem.textContent = cVal + '°';
+      }
+    }
+
+    function updateForecast(elem) {
+      const fPair = elem.dataset.f;
+      const cPair = elem.dataset.c; 
+
+      const pairToUse = isFahrenheit ? fPair : cPair;
+      const [high, low] = pairToUse.split('/');
+      elem.textContent = `${high}°/${low}°`;
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      isFahrenheit = !isFahrenheit;
+      toggleBtn.textContent = isFahrenheit ? 'Switch to °C' : 'Switch to °F';
+
+      tempElements.forEach(elem => updateSingleTemp(elem));
+      updateForecast(forecastToday);
+      updateForecast(forecastMonday);
+    });
+  </script>
+</body>
+</html>

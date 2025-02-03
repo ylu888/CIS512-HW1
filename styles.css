@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .weather-app {
+    width: 100%;
+    max-width: 430px;
+    height: 932px;
+    background: url('/aesthetic-night-sky-for-iphone-veyzqbtxyx577djv-veyzqbtxyx577djv.jpg') no-repeat center center/cover;
+    border-radius: 20px;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .location {
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+  }
+  
+  .location img {
+    width: 30px;
+    height: auto;
+  }
+  
+  .location button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .location button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  
+  .icon img {
+    width: 170px;
+    height: auto;
+  }
+  
+  .temp {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .details {
+    font-size: 18px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0px;
+  }
+  
+  .divider {
+    border-top: 1px solid white;
+    margin: 0;
+    width: 80%;
+    margin: 10px auto;
+  }
+  
+  .hourly {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .hourly div {
+    text-align: center;
+  }
+  
+  .forecast {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .forecast div {
+    text-align: center;
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .forecast div div:nth-child(2) {
+    margin-top: 10px;
+  }
+  
+  .forecast::after {
+    content: "";
+    position: absolute;
+    top: 15%;
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background-color: white;
+  }
+  
+  .recommendation {
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .hourly div div:first-child {
+    margin-bottom: 10px;
+  }
+  
